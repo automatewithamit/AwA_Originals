@@ -30,12 +30,11 @@ public class GoogleSheetsHelper {
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
     private static final String CREDENTIALS_FILE_PATH = "path/to/credentials.json";
     private static final List<String> SCOPES = Arrays.asList(SheetsScopes.SPREADSHEETS_READONLY);
-
     public static void main(String[] args) {
         try {
             Sheets service = getService();
-            String spreadsheetId = "YOUR_SPREADSHEET_ID";
-            String range = "Sheet1!A1:C10";
+            String spreadsheetId = "1q0SUxR4X9m6gA1CyWieAChUh9FNu6pr0tWNWmSAsUAY";
+            String range = "AFD Followup 20230708!A1:C10";
             List<List<Object>> values = readSheet(service, spreadsheetId, range);
 
             if (values == null || values.isEmpty()) {
@@ -52,6 +51,7 @@ public class GoogleSheetsHelper {
             e.printStackTrace();
         }
     }
+
 
     private static Sheets getService() throws IOException, GeneralSecurityException {
         HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
